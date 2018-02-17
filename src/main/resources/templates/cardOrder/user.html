@@ -93,7 +93,7 @@
                                 <input type="text" class="number" name="income" th:value="${form.income}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
-                                <label>(必須)ご職業</label>
+                                <label><font color="#0000ff">(必須)</font>ご職業</label>
                                 <input type="radio" name="job" value="経営自営" th:checked="${form.job}=='経営自営'"/>経営・自営業
                                 <input type="radio" name="job" value="会社員" th:checked="${form.job}=='会社員'"/>会社員
                                 <input type="radio" name="job" value="契約派遣" th:checked="${form.job}=='契約派遣'"/>契約・派遣社員
