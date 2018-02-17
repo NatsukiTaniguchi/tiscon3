@@ -53,11 +53,17 @@ public class CardOrderController {
      * @return お勤め先登録ページresponse
      */
     public HttpResponse inputJob(CardOrderForm form) {
+        String job = String.valueOf(form.getJob());
+        if (form.hasErrors()) {
+            return templateEngine.render("cardOrder/user", "form", form);
+        }
+        if (job == "学生" || job == "主婦"){
+            return templateEngine.render("cardOrder/completed");
+        }
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
-
-        return templateEngine.render("cardOrder/job", "form", form);
-    }
+            return templateEngine.render("cardOrder/job", "form", form);
+}
 
     /**
      * 本人登録ページに戻ります.
@@ -67,7 +73,6 @@ public class CardOrderController {
     public HttpResponse modifyUser(CardOrderForm form) {
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
-
         return templateEngine.render("cardOrder/user", "form", form);
     }
 
@@ -78,11 +83,11 @@ public class CardOrderController {
      */
     @Transactional
     public HttpResponse create(CardOrderForm form) {
+        String job = String.valueOf(form.getJob());
         if (form.hasErrors()) {
             return templateEngine.render("cardOrder/user", "form", form);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
-
         cardOrderDao.insert(cardOrder);
 
         return redirect(getClass(), "completed", SEE_OTHER);
