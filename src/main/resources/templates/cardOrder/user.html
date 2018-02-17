@@ -69,8 +69,8 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>配偶者有無</label>
-                                <input type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>配偶者あり
-                                <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
+                                <input type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>あり
+                                <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>なし
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お住まい</label>
