@@ -13,11 +13,13 @@ body {
 a.logo {
     font-family: 'Exo', sans-serif;
     color: #f33;
+    font-size: 23px;
 }
 
 .bland-message {
-    font-family: "Sawarabi Mincho";
-    font-size: 36px;
+    font-family: 'Yu Gothic',sans-serif;
+    font-size: 70px;
+
 }
 
 div.center.column {
