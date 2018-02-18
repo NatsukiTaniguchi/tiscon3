@@ -37,7 +37,7 @@
 
                             <!-- /*エラーがあれば表示する*/ -->
 
-                            
+
 
 
                             <div class="ui horizontal divider">ご本人について</div>
@@ -86,13 +86,13 @@
                                 <input type="text" name="address" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
-                                <label><font color="#ff0000">(必須)</font>自宅電話番号 <ul class="ui red basic label" th:if="${form.hasErrors('homePhoneNumber')}">
+                                <label><font color="#F86D04">(どちらか必須)</font>自宅電話番号 <ul class="ui red basic label" th:if="${form.hasErrors('homePhoneNumber')}">
                                     <li th:each="error : ${form.getErrors('homePhoneNumber')}" th:text="${error}"></li>
                                 </ul></label>
                                 <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
-                                <label><font color="#ff0000">(必須)</font>携帯電話番号<ul class="ui red basic label" th:if="${form.hasErrors('mobilePhoneNumber')}">
+                                <label><font color="#F86D04">(どちらか必須)</font>携帯電話番号<ul class="ui red basic label" th:if="${form.hasErrors('mobilePhoneNumber')}">
                                     <li th:each="error : ${form.getErrors('mobilePhoneNumber')}" th:text="${error}"></li>
                                 </ul></label>
                                 <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
