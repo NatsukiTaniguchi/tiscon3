@@ -14,11 +14,13 @@ a.logo {
     font-family: 'Exo', sans-serif;
     color: #f33;
     font-size: 23px;
+
 }
 
 .bland-message {
     font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
     font-size: 60px;
+
 
 }
 
@@ -70,7 +72,7 @@ ul.label {
 }
 
 .photo-show {
-    height: 300px;
+    height: 330px;
     margin: auto;
     max-width: 100%;
     position: relative;
