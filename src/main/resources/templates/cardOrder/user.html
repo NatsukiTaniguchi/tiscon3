@@ -27,7 +27,7 @@
                                 <li th:each="error : ${form.getErrors('kanjiName')}" th:text="${error}"></li>
                             </ul>
                             <ul class="ui red basic label" th:if="${form.hasErrors('kanjiName')}">
-                                <li th:each="error : ${form.getErrors('kanjiName')}" th:text="${error}"></li>
+                                <li th:each="error : ${form.getErrors('kanaName')}" th:text="${error}"></li>
                             </ul>
 
 
@@ -37,9 +37,9 @@
                                 <label><font color="#ff0000">(必須)</font>お名前（漢字）</label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
                             </div>
-                            <div class="field" th:classappend="${form.hasErrors('kanaName1')} ? 'error'">
+                            <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お名前（カナ）</label>
-                                姓<input type="text" class="split" name="kanaName1" th:value="${form.kanaName1}"/>
+                                姓<input type="text" class="split" name="kanaName" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お名前（ローマ字）</label>
