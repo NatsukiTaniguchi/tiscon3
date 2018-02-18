@@ -7,6 +7,22 @@
     <title>新規作成</title>
 
     <script src="/assets/js/metrixir.client.js"></script>
+    <script type="text/javascript">
+ function func(){
+    var elements=(document.getElementsByName('job'));
+    for(var a="",i=elements.length;i--;){
+    if(elements[i].checked){
+    a=elements[i].value;
+    break;
+    }
+    }
+ alert(a);
+ if(a=='学生'){
+ document.forms[0].action='/cardOrder/skip';
+ document.forms[0].submit();
+ }
+ }
+</script>
 </head>
 <body>
 <div class="full height image" layout:fragment="content">
@@ -36,7 +52,7 @@
                                 <label><font color="#ff0000">(必須)</font>お名前（カナ） <ul class="ui red basic label" th:if="${form.hasErrors('kanaName')}">
                                     <li th:each="error : ${form.getErrors('kanaName')}" th:text="${error}"></li>
                                 </ul></label>
-                                姓<input type="text" class="split" name="kanaName" th:value="${form.kanaName}"/>
+                                <input type="text" class="split" name="kanaName" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お名前（ローマ字）<ul class="ui red basic label" th:if="${form.hasErrors('alphabetName')}">
@@ -152,7 +168,7 @@
                             <input type="hidden" name="position" th:value="${form.position}"/>
                             <input type="hidden" name="employeeLength" th:value="${form.employeeLength}"/>
 
-                            <button class="ui fluid teal button">次へ（お勤め先情報の入力）</button>
+                            <button class="ui fluid teal button" onclick="func();return false;">次へ（お勤め先情報の入力）</button>
                         </form>
                     </div>
                 </div>
@@ -160,5 +176,9 @@
         </div>
     </div>
 </div>
+
+
 </body>
 </html>
+
+
