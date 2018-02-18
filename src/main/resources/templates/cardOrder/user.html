@@ -37,9 +37,9 @@
                                 <label><font color="#ff0000">(必須)</font>お名前（漢字）</label>
                                 <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
                             </div>
-                            <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
+                            <div class="field" th:classappend="${form.hasErrors('kanaName1')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お名前（カナ）</label>
-                                <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                姓<input type="text" class="split" name="kanaName1" th:value="${form.kanaName1}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label><font color="#ff0000">(必須)</font>お名前（ローマ字）</label>
