@@ -53,11 +53,11 @@ public class CardOrderController {
      * @return お勤め先登録ページresponse
      */
     public HttpResponse inputJob(CardOrderForm form) {
-        String job = String.valueOf(form.getJob());
+        String job = form.getJob();
         if (form.hasErrors()) {
             return templateEngine.render("cardOrder/user", "form", form);
         }
-        if (job == "学生" || job == "主婦"){
+        if (job.equals("学生") || job.equals("主婦") || job.equals("年金受給") || job.equals("ートアルバイト")||job.equals("他無職")){
             return templateEngine.render("cardOrder/completed");
         }
         // エラーを出したくないので強制的にエラーを消す.
