@@ -85,7 +85,7 @@ public class CardOrderController {
     public HttpResponse create(CardOrderForm form) {
         String job = String.valueOf(form.getJob());
         if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/user", "form", form);
+            return templateEngine.render("cardOrder/job", "form", form);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
         cardOrderDao.insert(cardOrder);
