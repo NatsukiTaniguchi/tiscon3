@@ -6,6 +6,7 @@ import enkan.data.HttpResponse;
 import jp.co.tis.tiscon3.dao.CardOrderDao;
 import jp.co.tis.tiscon3.entity.CardOrder;
 import jp.co.tis.tiscon3.form.CardOrderForm;
+import jp.co.tis.tiscon3.form.CardOrderForm2;
 import kotowari.component.TemplateEngine;
 
 import javax.annotation.PostConstruct;
@@ -47,17 +48,24 @@ public class CardOrderController {
         return templateEngine.render("cardOrder/user", "form", new CardOrderForm());
     }
 
+    //
+
+
+
+
     /**
      * お勤め先登録ページを表示します.
      *
      * @return お勤め先登録ページresponse
      */
+
     public HttpResponse inputJob(CardOrderForm form) {
         String job = form.getJob();
         if (form.hasErrors()) {
             return templateEngine.render("cardOrder/user", "form", form);
         }
-        if (job.equals("学生") || job.equals("主婦") || job.equals("年金受給") || job.equals("ートアルバイト")||job.equals("他無職")){
+        if (job.equals("学生") || job.equals("主婦") || job.equals("年金受給") || job.equals("パートアルバイト")||job.equals("他無職")){
+
             return templateEngine.render("cardOrder/completed");
         }
         // エラーを出したくないので強制的にエラーを消す.
@@ -86,6 +94,16 @@ public class CardOrderController {
         String job = String.valueOf(form.getJob());
         if (form.hasErrors()) {
             return templateEngine.render("cardOrder/job", "form", form);
+        }
+        CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
+        cardOrderDao.insert(cardOrder);
+
+        return redirect(getClass(), "completed", SEE_OTHER);
+    }
+    public HttpResponse create2(CardOrderForm2 form) {
+        String job = String.valueOf(form.getJob());
+        if (form.hasErrors()) {
+            return templateEngine.render("cardOrder/user", "form", form);
         }
         CardOrder cardOrder = beans.createFrom(form, CardOrder.class);
         cardOrderDao.insert(cardOrder);
